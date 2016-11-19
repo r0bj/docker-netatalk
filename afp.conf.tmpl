@@ -1,0 +1,23 @@
+;
+; Netatalk 3.x configuration file
+;
+
+[Global]
+; Global server settings
+
+; [Homes]
+; basedir regex = /xxxx
+
+; [My AFP Volume]
+; path = /path/to/volume
+
+[storage-afp]
+path = /media/share
+valid users = {{ getv "/afp_user" "afp" }}
+umask = 0007
+
+[TimeMachine]
+path = /media/timemachine
+time machine = yes
+;vol size limit = 440000
+valid users = {{ getv "/afp_user" "afp" }}
