@@ -12,8 +12,8 @@ RUN apt-get update \
         tracker \
         avahi-daemon \
         curl wget \
-        &&  wget      "http://heanet.dl.sourceforge.net/project/netatalk/netatalk/3.1.10/netatalk-3.1.10.tar.gz" \
-        &&  curl -SL  "http://heanet.dl.sourceforge.net/project/netatalk/netatalk/3.1.10/netatalk-3.1.10.tar.gz" | tar xvz
+          &&  wget      "http://heanet.dl.sourceforge.net/project/netatalk/netatalk/3.1.10/netatalk-3.1.10.tar.gz" \
+          &&  curl -SL  "http://heanet.dl.sourceforge.net/project/netatalk/netatalk/3.1.10/netatalk-3.1.10.tar.gz" | tar xvz
 
 WORKDIR netatalk-3.1.10
 
@@ -28,13 +28,13 @@ RUN ./configure \
         --with-pam-confdir=/etc/pam.d \
         --with-dbus-sysconf-dir=/etc/dbus-1/system.d \
         --with-tracker-pkgconfig-version=1.0 \
-        &&  make \
-         &&  make install \
+          &&  make \
+          &&  make install \
           &&  apt-get --quiet --yes purge --auto-remove \
         $DEPS \
         tracker-gui \
         libgl1-mesa-dri \
-        &&  DEBIAN_FRONTEND=noninteractive apt-get install --yes \
+          &&  DEBIAN_FRONTEND=noninteractive apt-get install --yes \
         libevent-2.0 \
         libavahi-client3 \
         libevent-core-2.0 \
@@ -43,18 +43,18 @@ RUN ./configure \
         libmysqlclient18 \
         libcrack2 \
         libdbus-glib-1-2 \
-        &&  apt-get --quiet --yes autoclean \
-         &&  apt-get --quiet --yes autoremove \
+          &&  apt-get --quiet --yes autoclean \
+          &&  apt-get --quiet --yes autoremove \
           &&  apt-get --quiet --yes clean \
-           &&  rm -rf /netatalk* \
-            &&  rm -rf /usr/share/man \
-             &&  rm -rf /usr/share/doc \
-              &&  rm -rf /usr/share/icons \
-               &&  rm -rf /usr/share/poppler \
-                &&  rm -rf /usr/share/mime \
-                 &&  rm -rf /usr/share/GeoIP \
-                  &&  rm -rf /var/lib/apt/lists* \
-                   &&  mkdir /media/share
+          &&  rm -rf /netatalk* \
+          &&  rm -rf /usr/share/man \
+          &&  rm -rf /usr/share/doc \
+          &&  rm -rf /usr/share/icons \
+          &&  rm -rf /usr/share/poppler \
+          &&  rm -rf /usr/share/mime \
+          &&  rm -rf /usr/share/GeoIP \
+          &&  rm -rf /var/lib/apt/lists* \
+          &&  mkdir /media/share
 
 WORKDIR /
 RUN rm -rf /netatalk-3.1.10
