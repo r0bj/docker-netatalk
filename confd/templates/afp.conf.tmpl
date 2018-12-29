@@ -11,13 +11,14 @@
 ; [My AFP Volume]
 ; path = /path/to/volume
 
-[storage-afp]
+[{{ getv "/afp/storage/volume/name" "storage-afp" }}]
 path = /media/share
-valid users = {{ getv "/afp_user" "afp" }}
+valid users = {{ getv "/afp/user" "afp" }}
 umask = 0007
 
-[TimeMachine]
+[{{ getv "/afp/timemachine/volume/name" "time-machine" }}]
 path = /media/timemachine
 time machine = yes
 ;vol size limit = 440000
-valid users = {{ getv "/afp_user" "afp" }}
+valid users = {{ getv "/afp/user" "afp" }}
+

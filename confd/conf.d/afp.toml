@@ -1,0 +1,8 @@
+[template]
+src = "afp.conf.tmpl"
+dest = "/etc/afp.conf"
+keys = [
+    "/afp/user",
+    "/afp/storage/volume/name",
+    "/afp/timemachine/volume/name",
+]

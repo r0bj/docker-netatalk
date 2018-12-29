@@ -1,6 +1,0 @@
-[template]
-src = "afp.conf.tmpl"
-dest = "/etc/afp.conf"
-keys = [
-    "/afp_user",
-]
